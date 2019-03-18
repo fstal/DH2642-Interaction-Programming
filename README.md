@@ -1,4 +1,17 @@
+
 # Dinner Planner React
+
+Collection of labs for course in Interaction Programming for the Dynamic Web
+
+Labs done using Javascript, React, HTML, CSS, Node.js
+
+Dinnerplanner made in collaboration with Joel Weidenmark https://github.com/JoelWeidenmark
+
+----------------------------------------------------------------
+----------------------------------------------------------------
+
+
+# Dinner Planner React (From task description)
 
 ## How to get started
 
