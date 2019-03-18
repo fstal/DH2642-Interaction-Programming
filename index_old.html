@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/stylesheet.css" type="text/css">
+    <title>Dinner planner</title>
+  </head>
+  <body>
+	<div class="jumbotron">
+		<h1 style="text-align: center;"> Dinner planner </h1>
+	</div>
+	
+	<div id="frontPage-main">
+		<div class="d-flex">
+			<div id="frontPage" class="d-flex align-items-center flex-column">
+				<p class="text-center w-50 m-5">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tincidunt, lacus et aliquet vulputate, ex libero consectetur nunc, nec placerat felis nunc tristique elit. Donec ut turpis eu risus vestibulum scelerisque. Nullam ut nisl feugiat, tristique risus quis, facilisis sapien. Curabitur ut diam in nunc pharetra venenatis.
+				</p>
+				<button id="createDinnerbtn" class="btn btn-warning btn-lg m-2 p-1">Create new dinner</button>
+			</div>
+		</div>
+	</div>
+
+	<div id="wrapper-main" class="d-flex flex-row flex-wrap flex-md-nowrap">
+		<div id="sideBar-main" class="d-none col-md-4 col-lg-3">
+			<div id="sideBar">
+				<div class="bootstrap-vertical-nav border border-dark">
+					<button class="btn btn-warning hidden-md-up m-2" type="button" data-toggle="collapse" data-target="#collapseWrapper" aria-expanded="	false" aria-controls="collapseExample">
+		                <span class="">Menu</span>
+		            </button>
+	                <div class="" id="collapseWrapper">
+	                	<div class="nav flex-column" id="exCollapsingNavbar3">
+							<p class="ml-2">
+								My Dinner
+							</p>
+							<div id="people" class="d-flex flex-row">
+								<p class="justify-content-center align-self-center ml-2" >
+									People
+								</p>
+								<p id="numOfGuestsDiv" class="justify-content-center align-self-center ml-2" >
+									1
+								</p>
+								<button id="plusButton" class="btn btn-warning">
+									+
+								</button>
+								<button id="minusButton" class="btn btn-warning">
+									-
+								</button>
+							</div>
+							<div id="infoBar" class="d-flex flex-row bg-secondary border-top border-bottom border-dark">
+								<p class="mr-auto m-2">
+									Dish Name
+								</p>
+								<p class="m-2">
+									Cost
+								</p>
+							</div>
+							<div id="sideMenu" class="d-flex flex-column">
+								<!-- HÄR LÄGGER VI TILL SAKER I MENYN i SIDEBAREN -->
+							</div>
+							<div id="sekText" class="d-flex justify-content-end m-2 align-content-center">
+							</div>
+							<div class="d-flex justify-content-center m-2">
+								<button id="confirmDinnerBtn" class="btn btn-warning">Confirm Dinner</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="dishSelectField">
+			<div id="selectDish-main" class="d-none">	
+				<div id="wrapper" class="d-flex flex-row flex-wrap flex-md-nowrap bg-light">
+					<div id="overview" class="d-flex border border-dark flex-column">
+						<div id="top" class="d-flex border-bottom border-dark w-100 p-4 flex-column">
+							<p id="topText" class="d-flex">
+								FIND A DISH
+							</p>
+							<div id="inputBoxes" class="d-flex flex-row">
+								<div class="form-group">
+									<input type="text" id="filterInput" name="keyword" placeholder="Enter key words">
+									<select class="ml-2" id="filterDishType" >
+										<option value="" selected>Any </option>
+										<option value="main course">Main Course</option>
+										<option value="side dish">Side Dish</option>
+										<option value="dessert">Dessert</option>
+										<option value="appetizer">Appetizer</option>
+										<option value="salad">Salad</option>
+										<option value="bread">Bread</option>
+										<option value="breakfast">Breakfast</option>
+										<option value="soup">Soup</option>
+										<option value="beverage">Beverge</option>
+										<option value="sauce"> Sauce</option>
+										<option value="drink">Drink</option>
+									</select>
+									<button id="searchBtn" class="btn btn-warning ml-2">Search</button>
+									<button id="resetBtn" class="btn btn-warning ml-2">Reset</button>
+								</div>
+							</div>
+						</div>
+						<div id="mealBox" class="d-flex flex-wrap border-top border-dark">
+							<div id="loadingMealBox" class="d-none" style="top:50%;left:50%;">
+								<img src='images/ajax-loader.gif'/>
+								<br>Loading...
+							</div>
+							<div id="mealBoxes" class="d-flex flex-wrap border-top border-dark">
+								<!-- HÄR ADDAS VÅRA MEALS -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		
+			<div id="dishDetails-main" class="d-none">
+				<div id="mealView" class="d-flex border border-dark flex-row flex-wrap flex-md-nowrap">
+					<div id="mealDesc" class="d-flex border-bottom border-dark p-4 flex-column" style="max-width: 550px;">
+						<h2 id="mealName" class="d-flex">
+						</h2>
+						<div id="mealImg">
+						</div>
+						<div id="currMealDesc">
+						</div>
+						<button id="backToSearch" class="btn btn-warning mt-2">
+							Back to search
+						</button>
+						<!--
+						<h2 id="prepMeal" class="mt-4">
+							Preparation
+						</h2>
+						-->
+					</div>
+					<div id="mealIngred" class="d-flex flex-column bg-warning border border-dark w-100" style="min-width: 235px;">
+						<h5 id="amountOfPeople" class="align-self-center">		
+							Ingredients for 1 people
+						</h5>
+						<div id="testlada">
+							
+						</div>
+						<table class="table">
+							<thead>
+								<tr>
+									<th scope="col">
+										Amount
+									</th>
+									<th scope="col">
+										Unit
+									</th>
+									<th scope="col">
+										Ingredient
+									</th>
+									<!--<th scope="col">
+										Currency
+									</th>
+									
+									<th scope="col">
+										Price
+									</th>
+									-->
+								</tr>
+							</thead>
+							<tbody id="tableBody">
+								<!-- HÄR FYLLER VI VÅRT INGREDIENTS-TABLE -->
+							</tbody>
+						</table>
+						<div id="bottomRow" class="d-flex flex-row align-self-center">
+							<button id="buttonAdd" class="btn btn-warning border border-dark mt-2">Add to menu</button>
+							
+							<div id="sekRow" class="align-self-center ml-4">USD</div>
+							<div id="totPrice" class="align-self-center ml-4"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="dinnerOverviewWrapper" class="d-none w-100">
+			<div class="d-flex flex-column flex-wrap flex-md-nowrap bg-light">
+				<div id="topInfoOverview" class="d-flex flex-row w-100 border border-dark p-4 flex-wrap">
+					<h4 id="amountOfPeopleOverview" class="d-flex mr-auto align-self-center">1</h4>
+					<button id="backToEdit1" class="btn d-flex btn-warning backToEdit">Go back and edit dinner</button>
+				</div>
+				<div id="dinnerInfo" class="d-flex w-100 align-items-center justify-content-center border border-dark flex-row flex-wrap">
+					<div id="mealBox2" class="flex-row">
+
+						<!-- HÄR ADDAS VÅRA MEALBOX2-SHISS -->
+
+					</div>
+					<div id="foodItems" class="d-flex bg-light flex-row flex-wrap">
+					</div>
+					<div id="totPriceDinner" class="align-self-end mb-2 ml-4">
+					</div>
+				</div>
+				<div id="bottomOverview" class="d-flex justify-content-center bg-light">
+					<button id="printBtn" class="btn btn-warning align-self-center mt-4">
+						Print Full Recipe
+					</button>
+				</div>
+			</div>
+		</div>
+
+		<div id ="dinnerPrintWrapper" class="d-none w-100">
+			<div id="topInfoPrint" class="d-flex flex-row w-100 border border-dark p-4 flex-wrap bg-light">
+				<h4 id="amountOfPeoplePrint" class="d-flex mr-auto align-self-center">1</h4>
+				<button id="backToEdit2" class="btn d-flex btn-warning backToEdit">Go back and edit dinner</button>
+			</div>
+			<div id="dinnerPrint" class="d-flex flex-column flex-wrap flex-md-nowrap bg-light border border-dark">
+				<div class="d-flex w-100 border border-dark flex-row flex-wrap">
+					<div id="printWrapper" class="d-flex w-100 flex-column border border-dark">
+					</div>
+				</div>
+				<div id="bottomPrint" class="d-flex justify-content-center bg-light">
+					<button class="btn btn-warning align-self-center mt-4">
+						Print Full Recipe
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="js/app.js"></script>
+	<script src="js/model/dinnerModel.js"></script>
+	<script src="js/controller/frontPageController.js"></script>
+	<script src="js/controller/searchViewController.js"></script>
+	<script src="js/controller/dinnerPrintController.js"></script>
+	<script src="js/controller/dinnerSummaryController.js"></script>
+	<script src="js/controller/mealViewController.js"></script>
+	<script src="js/controller/sideBarController.js"></script>
+	<script src="js/view/sideBar.js"></script>
+	<script src="js/view/dinnerPrint.js"></script>
+	<script src="js/view/dinnerOverview.js"></script>
+	<script src="js/view/overview.js"></script>
+  </body>
+</html>
